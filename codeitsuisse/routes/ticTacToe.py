@@ -25,6 +25,7 @@ def TTT():
     client = sseclient.SSEClient(streamResponse)
     for event in client.events():
         # print("got a new event from server")
+        logging.info("evenyt data :{}".format(event.data))
         pprint.pprint(event.data)
 
 
