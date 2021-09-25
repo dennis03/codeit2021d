@@ -17,16 +17,18 @@ def TTT():
     logging.info("data sent for evaluation {}".format(data))
 
     battleId = data.get("battleId")
-    url = 'https://cis2021-arena.herokuapp.com/tic-tac-toe/start/'
+    url = 'https://cis2021-arena.herokuapp.com/tic-tac-toe/start'
+    logging.info('starting')
     streamResponse = requests.get(url, params=battleId, stream=True)
-
+    logging.info('started')
+    logging.info('started',streamResponse)
     avaActions = ['NW','N','NE','W','C','E','SW','S','SE']
 
     client = sseclient.SSEClient(streamResponse)
-    for event in client.events():
-        # print("got a new event from server")
-        logging.info("evenyt data :{}".format(event.data))
-        pprint.pprint(event.data)
+    # for event in client.events():
+    #     # print("got a new event from server")
+    #     logging.info("evenyt data :{}".format(event.data))
+    #     pprint.pprint(event.data)
 
 
 
