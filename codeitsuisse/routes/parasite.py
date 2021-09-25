@@ -35,8 +35,10 @@ def parasite():
         else:
             ans01['p3'] = -1
         ans01['p4'] = int(calEnergy(grid1))
-
         result.append(ans01)
+        print(room)
+        print(grid1)
+        print(grid2)
 
     return jsonify(result)
 
@@ -124,7 +126,8 @@ def infection(grid, typeP):
                     elif typeP=='B':
                         ch1 = infectNeighbour2(grid1p5, time1, i, j, m, n, t)
                     changes1 += ch1
-        grid1 = grid1p5
+        grid1 = np.copy(grid1p5)
+        print(grid1)
         if changes1 == 0:
             break
     return grid1, time1
@@ -201,9 +204,16 @@ def infectNeighbour2(grid1p5, time1, i, j, m, n, t):
 if __name__ == "__main__":
     h = (2,0)
     grid1 = np.array([
-      [0, 3, 1],
-      [0, 3, 3],
+      [0, 3, 2],
+      [0, 1, 1],
       [1, 0, 0]
     ])
-    calEnergy(grid1)
+    grid1 = np.array([
+        [3, 1, 0, 1, 1],
+        [1, 1, 1, 1, 0],
+        [1, 1, 1, 1, 0]])
+    grid1, time1 = infection(grid1, 'A')
+    # calEnergy(grid1)
     # findEnergy1(h, grid1, 3, 3)
+    print(grid1)
+    print(time1)
