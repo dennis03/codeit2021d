@@ -210,5 +210,5 @@ if __name__ == "__main__":
     grid1, time1 = infection(grid1, 'A')
     # calEnergy(grid1)
     # findEnergy1(h, grid1, 3, 3)
-    print(grid1)
-    print(time1)
+    # print(grid1)
+    # print(time1)
