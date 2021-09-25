@@ -17,17 +17,21 @@ def fixedrace():
     str1 = request.data
     logging.info("data sent for evaluation {}".format(str1))
     if str1[:5] == b'##set':
-        str1, name, strS = str1.split(b',')
+        _, name, strS = str1.split(b',')
         scores[name] = int(strS)
+        return b'done ' + str1
     elif str1[:7] == b'##reset':
         scores.clear()
+        return b'done ' + str1
     elif str1[:6] == b'##show':
-        print(scores)
+        ss = {k: v for k, v in sorted(scores.items(), key=lambda item: -item[1])}
+        # print(ss)
+        return str(ss)
     else:
         names1 = str1.split(b',')
         guess = guessRank(names1)
         return b','.join(guess)
-    return b'done '+str1
+
 
 def guessRank(names1):
     scores1 = []
