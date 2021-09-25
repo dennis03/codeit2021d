@@ -93,7 +93,7 @@ def findEnergy1(h, grid1, m, n):
             if ((i,j-1) not in visited):
                 queue1.append((i,j-1))
                 visited[(i,j-1)] = (e+1,path+[(i,j-1)])
-        if not j-1>=n:
+        if not j+1>=n:
             if grid1[i,j+1] == 3:
                 break
             if ((i,j+1) not in visited):
