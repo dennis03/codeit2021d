@@ -26,12 +26,12 @@ def TTT():
     for event in client.events():
         # print("got a new event from server")
         pprint.pprint(event.data)
-        
 
 
-    # result = inputValue * inputValue
-    # logging.info("My result :{}".format(result))
-    return 1
+
+    result = 0
+    logging.info("My result :{}".format(result))
+    return json.dumps(result)
 
 
 
