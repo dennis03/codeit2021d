@@ -36,6 +36,13 @@ def parasite():
             ans01['p3'] = -1
         ans01['p4'] = int(calEnergy(grid1))
         result.append(ans01)
+        print(room)
+        print(grid1)
+        print(time1)
+        print(grid2)
+        print(time2)
+    logging.info("done")
+
     return jsonify(result)
 
 def calEnergy(grid):
