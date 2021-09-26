@@ -17,7 +17,7 @@ def optopt():
     options = data['options']
     views = data['view']
 
-    pdf1 = calPDF(views)
+    # pdf1 = calPDF(views)
 
 
     result = [100]
