@@ -20,7 +20,7 @@ def optopt():
     # pdf1 = calPDF(views)
 
 
-    result = [100]
+    result = [100]*len(data['options'])
     return jsonify(result)
 
 # def calPDF(views):
